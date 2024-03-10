@@ -1,0 +1,7 @@
+#!/bin/bash
+
+docker container stop myjenkins
+docker container rm myjenkins
+docker container stop docker-jenkins
+docker container rm docker-jenkins
+docker image rm myjenkins:latest
