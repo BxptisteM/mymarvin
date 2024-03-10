@@ -1,0 +1,17 @@
+name : chocolatine
+on: [push, pull_request]
+env:
+  REPO_LINK: "git@github.com:EpitechPromo2027/B-DOP-400-NAN-4-1-mymarvin-baptiste.moreau.git"
+jobs:
+  push_to_epitech_repo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: pixta-dev/repository-mirroring-action@v1
+        with:
+          target_repo_url:
+            ${{env.REPO_LINK}}
+          ssh_private_key:
+            ${{secrets.SSH_PRIVATE_KEY}}
