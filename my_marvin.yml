@@ -31,6 +31,7 @@ jenkins:
           - name: "ape"
             description: "Pedagogical team member"
             permissions:
+              - "Job/Read"
               - "Job/Build"
               - "Job/Workspace"
             entries:
