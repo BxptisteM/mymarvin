@@ -17,3 +17,14 @@ jenkins:
         - id: "nasso"
           password: "${USER_NASSO_PASSWORD}"
           name: "Nassim"
+
+  authorizationStrategy:
+    roleBased:
+      roles:
+        global:
+          - name: "admin"
+            description: "Marvin master"
+            permissions:
+              - "Overall/Administer"
+            entries:
+              - user: "chocolateen"

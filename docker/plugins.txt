@@ -1,2 +1,12 @@
 configuration-as-code
 job-dsl
+role-strategy:711.vf33a_d2c994b_a_
+cloudbees-folder
+credentials
+github
+instance-identity
+job-dsl
+script-security
+structs
+role-strategy
+ws-cleanup
