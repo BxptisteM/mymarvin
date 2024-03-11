@@ -4,14 +4,11 @@ FROM jenkins/jenkins:lts-jdk17
 # Disable the setup wizard
 ENV JAVA_OPTS -Djenkins.install.runSetupWizard=false
 
-# Copier le fichier de liste de plugins dans le conteneur
+# Mount plugin list to the Jenkins container
 COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
 
-# Utiliser jenkins-plugin-cli pour installer les plugins
+# Install the plugins from the plugin.txt file with jenkins-plugin-cli
 RUN jenkins-plugin-cli --plugin-file /usr/share/jenkins/ref/plugins.txt
 
-# # Ajouter votre fichier de configuration JCasC dans l'image
-# COPY my-jenkins-configuration.yml /var/jenkins_home/casc_configs/my-jenkins-configuration.yml
-
-# # Dire à Jenkins où trouver les fichiers de configuration JCasC
-# ENV CASC_JENKINS_CONFIG="/var/jenkins_home/casc_configs"
+# Setting up an environement var for the configuration as code path
+ENV CASC_JENKINS_CONFIG="/var/jenkins_home/casc_configs"

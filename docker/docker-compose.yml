@@ -1,6 +1,8 @@
 version: '3'
 services:
   jenkins:
+    env_file:
+      - ./.env
     build:
       context: .
       dockerfile: Dockerfile
@@ -8,3 +10,6 @@ services:
     container_name: myjenkins
     ports:
       - "8080:8080"
+    volumes:
+      - ../my_marvin.yml:/var/jenkins_home/casc_configs/my_marvin.yml
+    restart: on-failure
