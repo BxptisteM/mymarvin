@@ -1,6 +1,6 @@
 folder('Tools') {
-    description('Folder for miscellaneous tools')
     displayName('Tools')
+    description('Folder for miscellaneous tools')
 
     freestyleJob('clone-repository') {
         displayName('clone-repository')
