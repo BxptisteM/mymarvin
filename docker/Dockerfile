@@ -12,6 +12,3 @@ RUN jenkins-plugin-cli --plugin-file /usr/share/jenkins/ref/plugins.txt
 
 # Setting up an environement var for the configuration as code path
 ENV CASC_JENKINS_CONFIG="/var/jenkins_home/casc_configs"
-
-# Copy the Job DSL script into the container
-COPY job_dsl.groovy /usr/share/jenkins/ref/job_dsl.groovy

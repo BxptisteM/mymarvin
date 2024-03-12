@@ -12,4 +12,5 @@ services:
       - "8080:8080"
     volumes:
       - ../my_marvin.yml:/var/jenkins_home/casc_configs/my_marvin.yml
+      - ../job_dsl.groovy:/var/jenkins_home/casc_configs/job_dsl.groovy
     restart: on-failure
