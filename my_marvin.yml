@@ -59,3 +59,6 @@ jenkins:
               - "Job/Workspace"
             entries:
               - user: "nasso"
+
+jobs:
+  - file: /var/jenkins_home/casc_configs/job_dsl.groovy
