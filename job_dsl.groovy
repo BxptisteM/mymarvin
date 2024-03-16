@@ -41,7 +41,7 @@ freeStyleJob('Tools/SEED') {
                 steps {
                     shell('make fclean')
                     shell('make')
-                    shell('make test_run')
+                    shell('make tests_run')
                     shell('make clean')
                 }
             }
