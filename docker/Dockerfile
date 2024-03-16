@@ -12,3 +12,15 @@ RUN jenkins-plugin-cli --plugin-file /usr/share/jenkins/ref/plugins.txt
 
 # Setting up an environement var for the configuration as code path
 ENV CASC_JENKINS_CONFIG="/var/jenkins_home/casc_configs"
+
+# Switch to root user to install system packages
+USER root
+
+# Install make and any other required packages
+RUN apt-get update && apt-get install -y make
+RUN apt-get update && apt-get install -y gcc
+RUN apt-get update && apt-get install -y g++
+RUN apt-get update && apt-get install -y libcriterion-dev
+
+# Switch back to jenkins user
+USER jenkins
