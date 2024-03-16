@@ -20,26 +20,32 @@ freeStyleJob('/Tools/clone-repository') {
 }
 
 freeStyleJob('Tools/SEED') {
-    displayName('SEED')
     parameters {
         stringParam('GITHUB_NAME', '', 'GitHub repository owner/repo_name (e.g.: "EpitechIT31000/chocolatine")')
         stringParam('DISPLAY_NAME', '', 'Display name for the job')
     }
-    triggers {
-        scm('H/1 * * * *')
-    }
-    scm {
-        github('\$GITHUB_NAME')
-    }
-    wrappers {
-        preBuildCleanup {
-            preBuildCleanup()
-        }
-    }
     steps {
-        shell('make fclean')
-        shell('make')
-        shell('make tests_run')
-        shell('make clean')
+        dsl {
+            text('''freeStyleJob("Tools/$DISPLAY_NAME") {
+                triggers {
+                    scm('H/1 * * * *')
+                }
+                scm {
+                    github("\$GITHUB_NAME")
+                }
+                wrappers {
+                    preBuildCleanup {
+                        preBuildCleanup()
+                        }
+                    }
+                steps {
+                    shell('make fclean')
+                    shell('make')
+                    shell('make test')
+                    shell('make clean')
+                }
+            }
+            ''')
+        }
     }
 }
