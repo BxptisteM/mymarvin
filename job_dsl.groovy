@@ -28,10 +28,10 @@ freeStyleJob('Tools/SEED') {
         dsl {
             text('''freeStyleJob("Tools/$DISPLAY_NAME") {
                 triggers {
-                    scm('H/1 * * * *')
+                    scm('* * * * *')
                 }
                 scm {
-                    github("\$GITHUB_NAME")
+                    github("$GITHUB_NAME")
                 }
                 wrappers {
                     preBuildCleanup {
